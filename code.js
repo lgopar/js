@@ -26,22 +26,32 @@ do {
     }
 
     //Script interactivo, solicita al usuario que ingrese un numero < 1 y 100 < que sea divisible entre 3. Se verifica si el numero ingresado es entero y si es un numero correcto se devuelve en consola un mensaje positivo. Si es un numero incorrecto se genera un ciclo hasta que se ingrese correctamente el numero.  
-    
-var numeroCorrecto = false;
+ 
+    function validarNumeroDivisiblePorTres() {
+        let numeroValido = false;
+      
+        while (!numeroValido) {
+          let numero = prompt("Ingresa un número enterodel 1 al 100 divisible por 3:");
+      
+          // validacion de numero entero
 
-while (!numeroCorrecto) {
-    var numero = prompt("Ingresa un número del 1 al 100 divisible por 3:");
-
-         if (!isNaN(parseInt(numero)) && parseInt(numero) >= 1 && parseInt(numero) <= 100) {
-        numero = parseInt(numero);
-     if (numero % 3 === 0) {
-            console.log("¡El número ingresado es correcto!");
-            numeroCorrecto = true;
-        } else {
-            console.log("El número no es divisible por 3. Intenta nuevamente.");
+          if (!isNaN(parseInt(numero)) && Number.isInteger(parseFloat(numero)) && parseInt(numero) >= 1 && parseInt(numero) <= 100) {
+            numero = parseInt(numero);
+      
+            // verificcacion si es % 3
+            
+            if (numero % 3 === 0) {
+              numeroValido = true;
+              console.log("¡El número ingresado es correcto!");
+            } else {
+              console.log("El número no es divisible por 3. Intenta nuevamente.");
+            }
+          } else {
+            alert("No has ingresado un número entero válido. Intenta nuevamente.");
+          }
         }
-    } else {
-        console.log("No has ingresado un número válido. Intenta nuevamente.");
-    }
-}
-
+      }
+      
+      // iniciar validacion
+      validarNumeroDivisiblePorTres();
+      
