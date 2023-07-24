@@ -56,7 +56,6 @@ do {
       validarNumeroDivisiblePorTres();*/
 
 // PRE-ENTREGA Nro2 
-
 let personas = [];
 
 function agregarPersona() {
