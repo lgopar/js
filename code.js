@@ -1,4 +1,4 @@
-//scriot con ciclo 
+/*//scriot con ciclo 
 let dias = 1; 
 
 do {
@@ -53,5 +53,89 @@ do {
       }
       
       // iniciar validacion
-      validarNumeroDivisiblePorTres();
-      
+      validarNumeroDivisiblePorTres();*/
+
+// PRE-ENTREGA Nro2 
+
+let personas = [];
+
+function agregarPersona() {
+  let nombre = prompt("Ingresa el nombre de la persona:");
+  let edad = prompt("Ingresa la edad de la persona:");
+  let ciudad = prompt("Ingresa la ciudad de la persona:");
+
+  const persona = {
+    nombre: nombre,
+    edad: parseInt(edad),
+    ciudad: ciudad
+  };
+
+  personas.push(persona);
+  console.log("Persona agregada correctamente!");
+}
+
+function mostrarPersonas() {
+  console.log("Lista de personas:");
+  personas.forEach((persona, index) => {
+    console.log(index + 1 + ". Nombre: " + persona.nombre + ", Edad: " + persona.edad + ", Ciudad: " + persona.ciudad);
+  });
+}
+
+function buscarPersonaPorNombre() {
+  let nombreBuscar = prompt("Ingresa el nombre de la persona que queres buscar");
+  let personaEncontrada = personas.find(persona => persona.nombre === nombreBuscar);
+
+  if (personaEncontrada) {
+    console.log("Persona encontrada:");
+    console.log("Nombre: " + personaEncontrada.nombre + ", Edad: " + personaEncontrada.edad + ", Ciudad: " + personaEncontrada.ciudad);
+  } else {
+    console.log("No existen personas con ese nombre");
+  }
+}
+
+function eliminarPersona() {
+  let nombreEliminar = prompt("Ingresa el nombre de la persona que vas eliminar:");
+  let indiceEliminar = personas.findIndex(persona => persona.nombre === nombreEliminar);
+
+  if (indiceEliminar !== -1) {
+    personas.splice(indiceEliminar, 1);
+    console.log("Has elminado persona");
+  } else {
+    console.log("No existen personas con ese nombre");
+  }
+}
+
+function menuPrincipal() {
+  let opcion;
+  do {
+    opcion = prompt(`¿Que operacion queres realizar?
+    1. Agregar una persona
+    2. Mostrar personas
+    3. Buscar persona por nombre
+    4. Eliminar persona
+    5. Salir`);
+
+    switch (opcion) {
+      case "1":
+        agregarPersona();
+        break;
+      case "2":
+        mostrarPersonas();
+        break;
+      case "3":
+        buscarPersonaPorNombre();
+        break;
+      case "4":
+        eliminarPersona();
+        break;
+      case "5":
+        console.log("¡Hasta luego!");
+        break;
+      default:
+        console.log("Opción inválida. Intenta nuevamente.");
+    }
+  } while (opcion !== "5");
+}
+
+menuPrincipal();
+     
