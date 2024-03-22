@@ -1,4 +1,4 @@
-/*//scriot con ciclo 
+//scriot con ciclo 
 let dias = 1; 
 
 do {
@@ -31,7 +31,7 @@ do {
         let numeroValido = false;
       
         while (!numeroValido) {
-          let numero = prompt("Ingresa un número enterodel 1 al 100 divisible por 3:");
+          let numero = prompt("Ingresa un número entero del 1 al 100 divisible por 3:");
       
           // validacion de numero entero
 
